@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3000",
   "script": {
-    "start": "cd server && node app.js",
+    "start": "cd server && npm start",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
 }
 }
