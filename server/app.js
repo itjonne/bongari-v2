@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const helmet = require("helmet");
+const path = require("path");
 require("express-async-errors");
 
 const config = require("./util/config");
@@ -29,7 +30,16 @@ app.use(express.json());
 app.use(morgan("common"));
 app.use(cors());
 app.use(helmet());
-app.use(express.static("build"));
+
+// ... other app.use middleware
+app.use(express.static(path.join(__dirname, "frontend", "build")));
+
+// ...
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+});
+
 app.use(middleware.tokenExtractor);
 app.use(middleware.userExtractor);
 
