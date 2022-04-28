@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { BASE_URL } from './config';
 
-const apiUrl = 'http://localhost:3001/api/objects/wikipedia';
+const apiUrl = `${BASE_URL}/objects/wikipedia`;
 
 const getTitle = async (title) => {
   if (!title || typeof title !== 'string') return null;
