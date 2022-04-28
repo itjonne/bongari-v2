@@ -12,13 +12,11 @@ const WelcomeMessage = () => {
         borderRadius: '12px',
       }}>
       <Box sx={{ flex: 1 }}>
-        <Typography variant="h5">Tervetuloa!</Typography>
+        <Typography variant="h5">Moikka Anni!</Typography>
       </Box>
       <Box sx={{ flex: 1 }}>
         <Typography variant="body1">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt erat sit amet
-          ultrices lacinia. Suspendisse nulla dui, scelerisque vitae magna non, rutrum accumsan
-          neque. Proin convallis eleifend augue vitae commodo.
+          Toivottavasti löydät hienoja otuksia. Onnea matkaan!
         </Typography>
       </Box>
     </Box>
