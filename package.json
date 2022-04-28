@@ -2,5 +2,9 @@
   "name": "bongari-v2",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000"
+  "proxy": "http://localhost:3000",
+  "script": {
+    "start": "cd server && node app.js",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
+}
 }
