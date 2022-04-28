@@ -6,7 +6,7 @@
     "npm": "8.x"
   },
   "scripts": {
-    "start": "cd server && node app.js",
+    "start": "cd server && node index.js",
     "heroku-postbuild": "cd server && npm install && cd ../frontend && npm install && npm run build"
 }
 }
