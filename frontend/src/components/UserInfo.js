@@ -155,7 +155,7 @@ const UserInfo = () => {
           src="/images/sinitiainen.jpg"
         />
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <Typography variant="h5">{user.username}</Typography>
+          <Typography variant="h5">{user.email.split('@')[0]}</Typography>
           <Typography color="gray" variant="button">
             {user.location ? user.location : 'Ei Paikkatietoja'}
           </Typography>

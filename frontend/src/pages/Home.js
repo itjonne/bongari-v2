@@ -1,14 +1,15 @@
-import { lazy, memo, Suspense, useCallback } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 // import { Container } from '@mui/material';
-import Categories from '../components/Categories';
+// import Categories from '../components/Categories';
+import Leaderboard from '../components/Leaderboard';
 import LoadingComponent from '../components/LoadingComponent';
 import TopNavigation from '../components/TopNavigation';
 import WelcomeMessage from '../components/WelcomeMessage';
 import { setCategory } from '../reducers/filter/filterSlice';
 
-const ImageListLarge = lazy(() => import('../components/ImageListLarge'));
+// const ImageListLarge = lazy(() => import('../components/ImageListLarge'));
 
 const Home = () => {
   const navigate = useNavigate();
@@ -40,12 +41,15 @@ const Home = () => {
   return (
     <>
       <TopNavigation header="Koti" />
-      <Categories objects={objects} selected={filter.category} handleSelected={handleCategory} />
+      {/* <Categories objects={objects} selected={filter.category} handleSelected={handleCategory} /> */}
       <Suspense fallback={<LoadingComponent />}>
         <WelcomeMessage />
+        {/*
         <ImageListLarge header="Alueeltasi Bongattua" getObjects={getObjects(0, 5)} />
         <ImageListLarge header="Suosituimmat" getObjects={getObjects(5, 10)} />
         <ImageListLarge header="Viimeisimmät" getObjects={getObjects(10, 15)} />
+        */}
+        <Leaderboard />
       </Suspense>
     </>
   );

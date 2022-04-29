@@ -1,6 +1,7 @@
 import { Avatar, Box, Typography } from '@mui/material';
 import { PropTypes } from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { removeFind } from '../reducers/finds/findsSlice';
 
 const Find = ({ find }) => {
@@ -62,7 +63,14 @@ Find.propTypes = {
 
 const Finds = ({ finds }) => {
   const objects = useSelector((state) => state.objects);
+  const navigate = useNavigate();
   let date = null;
+
+  const handleNavigate = (e, find) => {
+    e.preventDefault();
+    const object = objects[find.category].find((object) => object.id === find.objectId);
+    navigate(`/object/${find.objectId}`, { state: { object, from: 'Loki' } });
+  };
 
   // TODO: PARANNA TOI PÄIVÄMÄÄRÄFUNKTIOSYSTEEMI, ottaa nyt vuoden, päivän ja kuukauden.
   const createFind = (found) => {
@@ -84,7 +92,8 @@ const Finds = ({ finds }) => {
         )}
         <Box
           key={found.objectId}
-          sx={{ paddingBottom: '8px', display: 'flex', alignItems: 'center' }}>
+          sx={{ paddingBottom: '8px', display: 'flex', alignItems: 'center' }}
+          onClick={(e) => handleNavigate(e, found)}>
           <Avatar
             sx={{
               width: '56px',

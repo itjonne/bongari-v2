@@ -76,4 +76,11 @@ usersRouter.put('/self', middleware.requireExactUser, async (req, res) => {
   return res.status(200).json(updatedUser.toJSON());
 });
 
+// LEADERBOARD
+usersRouter.get('/leaderboard', async (req, res) => {
+  const users = await User.find({}).sort({ points: -1 }).limit(5);
+  return res.status(200).json(users.map((user) => user.toJSON()));
+});
+
+
 module.exports = usersRouter;
