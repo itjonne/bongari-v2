@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const filter = JSON.parse(localStorage.getItem('filter'));
 
 const initialState = {
-  sort: 0,
+  sort: 1,
   direction: '',
   category: 'Kaikki',
 };

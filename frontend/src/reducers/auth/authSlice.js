@@ -37,7 +37,17 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
 export const authSlice = createSlice({
   name: 'auth',
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    // eslint-disable-next-line no-unused-vars
+    logout: (state, action) => {
+      console.log('logging out');
+      console.log(action.payload);
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      state.user = action.payload;
+      state.token = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       // CASES FOR REGISTER
@@ -74,5 +84,7 @@ export const authSlice = createSlice({
       });
   },
 });
+
+export const { logout } = authSlice.actions;
 
 export default authSlice.reducer;

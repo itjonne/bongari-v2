@@ -110,6 +110,7 @@ const ImageGallery = ({ getObjects, handleClick, handleSort, sortBy }) => {
           return (
             <Grid
               className="grid"
+              style={{ overflowX: 'hidden' }}
               width={width}
               height={height}
               columnCount={columnCount}

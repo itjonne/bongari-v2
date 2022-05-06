@@ -21,6 +21,7 @@ const CategoriesList = ({ names, selected, handleSelected }) => {
         gap: '16px',
         flexDirection: 'row',
         overflowX: 'scroll',
+        overflowY: 'hidden',
         marginTop: '8px',
         padding: '0 24px 0 24px',
         width: '100%',

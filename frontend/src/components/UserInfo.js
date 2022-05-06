@@ -200,7 +200,7 @@ const UserInfo = () => {
         </Box>
       </Box>
       <UserTabs />
-      <Box sx={{ paddingTop: '8px', overflowY: 'scroll', height: '100%' }}>
+      <Box sx={{ paddingTop: '8px' }}>
         {categories &&
           Object.keys(categories).map((category, i) => {
             return (

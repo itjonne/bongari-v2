@@ -3,9 +3,23 @@ import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { Button } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { logout } from '../reducers/user/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 /* eslint-disable react/jsx-props-no-spreading */
-const TopNavigation = ({ arrow, header, handleClick }) => {
+const TopNavigation = ({ arrow, header, handleClick, haslogout }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    console.log('logging out');
+    e.preventDefault();
+    dispatch(logout());
+    navigate('/splash');
+  };
+
   return (
     <AppBar
       sx={{ display: 'flex', flexDirection: 'row' }}
@@ -22,6 +36,11 @@ const TopNavigation = ({ arrow, header, handleClick }) => {
         <Typography variant="h4" component="div">
           {header && header}
         </Typography>
+        {haslogout && (
+          <Button sx={{ alignSelf: 'flex-end' }} onClick={handleLogout}>
+            Logout
+          </Button>
+        )}
       </Toolbar>
       <Toolbar />
     </AppBar>

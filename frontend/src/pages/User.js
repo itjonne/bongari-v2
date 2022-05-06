@@ -18,10 +18,10 @@ const User = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
+        overflowY: 'scroll',
         height: '100%',
-        overflowX: 'hidden',
       }}>
-      <TopNavigation header="Käyttäjä" />
+      <TopNavigation header="Käyttäjä" haslogout />
       <Suspense fallback={<LoadingComponent />}>
         <UserInfo />
       </Suspense>

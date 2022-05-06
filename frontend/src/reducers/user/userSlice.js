@@ -87,8 +87,8 @@ export const userSlice = createSlice({
         return state;
       })
       // CASES FOR LOGOUT
+      // eslint-disable-next-line
       .addCase(logout.fulfilled, (state) => {
-        console.log(state);
         return null;
       });
   },

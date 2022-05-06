@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Container, Box } from '@mui/material';
 import Categories from '../components/Categories';
 import TopNavigation from '../components/TopNavigation';
 // import useWindowDimensions from '../hooks/useWindowDimensions';
@@ -92,7 +92,7 @@ const Gallery = () => {
   }
 
   return (
-    <>
+    <Box sx={{ overflow: 'hidden', overflowY: 'scroll', height: '100%' }}>
       <TopNavigation header="Löydä" />
       <Categories objects={objects} selected={filter.category} handleSelected={handleSelected} />
       {/* ==== LADATAAN TÄÄ VASTA KU TARVITAAN ==== TODO: Teepä tää ehkä kaikkiin ?! */}
@@ -104,7 +104,7 @@ const Gallery = () => {
           sortBy={sortProperties[filter.sort]}
         />
       </Suspense>
-    </>
+    </Box>
   );
 };
 
