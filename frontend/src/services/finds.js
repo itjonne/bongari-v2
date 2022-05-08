@@ -21,6 +21,17 @@ export const getFinds = async (user) => {
   }
 };
 
+export const getLatestFinds = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/finds/latest`);
+    console.log('got latest finds', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Problems getting latest finds');
+    return [];
+  }
+};
+
 export const addFind = async ({ user, object, body }) => {
   console.log('addfindservice', user, object);
   if (!user) return null;

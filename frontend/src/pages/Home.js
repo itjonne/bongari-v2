@@ -1,6 +1,7 @@
 import { memo, Suspense, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import LatestFinds from '../components/LastestFinds';
 // import { Container } from '@mui/material';
 // import Categories from '../components/Categories';
 import Leaderboard from '../components/Leaderboard';
@@ -49,6 +50,7 @@ const Home = () => {
         <ImageListLarge header="Suosituimmat" getObjects={getObjects(5, 10)} />
         <ImageListLarge header="Viimeisimmät" getObjects={getObjects(10, 15)} />
         */}
+        <LatestFinds />
         <Leaderboard />
       </Suspense>
     </>
