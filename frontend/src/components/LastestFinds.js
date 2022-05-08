@@ -1,7 +1,8 @@
 import { Typography, Box, Avatar } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { getLatestFinds } from '../services/finds';
 import { PRIMARY } from '../config/theme';
+import LoadingComponent from './LoadingComponent';
 
 const LatestFinds = () => {
   const [finds, setFinds] = useState([]);
@@ -14,6 +15,8 @@ const LatestFinds = () => {
 
     asyncGetLatestFinds();
   }, []);
+
+  if (finds.length === 0) return <LoadingComponent />;
 
   return (
     <Box sx={{ padding: '0 16px' }}>
@@ -69,4 +72,4 @@ const LatestFinds = () => {
   );
 };
 
-export default LatestFinds;
+export default memo(LatestFinds);

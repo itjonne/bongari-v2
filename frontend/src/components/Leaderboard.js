@@ -1,5 +1,5 @@
 import { Avatar, Box, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { getLeaderboard } from '../services/users';
 import LoadingComponent from './LoadingComponent';
 import { PRIMARY } from '../config/theme';
@@ -15,7 +15,7 @@ const Leaderboard = () => {
     asyncLeaderboard();
   }, []);
 
-  if (!leaderboard) return <LoadingComponent />;
+  if (leaderboard.length === 0) return <LoadingComponent />;
 
   return (
     <Box sx={{ padding: '0 16px' }}>
@@ -62,4 +62,4 @@ const Leaderboard = () => {
   );
 };
 
-export default Leaderboard;
+export default memo(Leaderboard);
