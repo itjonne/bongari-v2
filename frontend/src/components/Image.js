@@ -148,7 +148,7 @@ const Image = ({ type, object, handleClick }) => {
           justifyContent: 'space-between',
           backgroundImage: getLocalImage(),
           backgroundSize: 'cover',
-          backgroundColor: 'white',
+          backgroundColor: 'gray',
         }}>
         <Icon sx={{ margin: '2px' }} text={`${object.points}p`} size="24px" found={found} />
         <Box

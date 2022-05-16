@@ -4,10 +4,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { removeFind } from '../reducers/finds/findsSlice';
 
+/*
+  TODO: Tehty aikamoinen purkkaratkaisu tuohon handleNavigateen. On nyt kahdessa paikassa.
+
+*/
+
 const Find = ({ find }) => {
   const objects = useSelector((state) => state.objects[find.category]);
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleNavigate = (e, find) => {
+    e.preventDefault();
+    const object = objects.find((object) => object.id === find.objectId);
+    navigate(`/object/${find.objectId}`, { state: { object, from: 'Loki' } });
+  };
 
   const handleModify = (e) => {
     e.preventDefault();
@@ -36,7 +48,8 @@ const Find = ({ find }) => {
           flexDirection: 'column',
           justifyContent: 'center',
           paddingLeft: '16px',
-        }}>
+        }}
+        onClick={(e) => handleNavigate(e, find)}>
         <Typography variant="h6">
           {objects.find((object) => object.id === find.objectId).name}
         </Typography>
@@ -92,8 +105,7 @@ const Finds = ({ finds }) => {
         )}
         <Box
           key={found.objectId}
-          sx={{ paddingBottom: '8px', display: 'flex', alignItems: 'center' }}
-          onClick={(e) => handleNavigate(e, found)}>
+          sx={{ paddingBottom: '8px', display: 'flex', alignItems: 'center' }}>
           <Avatar
             sx={{
               width: '56px',
@@ -101,6 +113,7 @@ const Finds = ({ finds }) => {
               borderStyle: 'solid',
               borderWidth: 'thin',
             }}
+            onClick={(e) => handleNavigate(e, found)}
             alt={`object-image-${found.objectId}`}
             src={`/images/${found.category}/thumbnails/${
               objects[found.category].find((object) => object.id === found.objectId).name
