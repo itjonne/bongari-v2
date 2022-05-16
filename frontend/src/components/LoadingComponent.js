@@ -1,5 +1,4 @@
 import { Box } from '@mui/material';
-import logo from '../logo.jpg';
 import { spin } from '../animations/spin';
 import { fillContainer } from '../config/styles';
 
@@ -10,11 +9,11 @@ const LoadingComponent = () => {
         component="img"
         sx={{
           animation: `${spin} infinite 20s linear`,
-          height: '40vmin',
-          width: '40vmin',
           pointerEvents: 'none',
+          width: '192px', // TODO: Ehkä prosenteiks tms
+          height: '192px',
         }}
-        src={logo}
+        src="/images/logo.jpg"
         alt="logo"></Box>
     </Box>
   );

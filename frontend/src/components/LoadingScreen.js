@@ -1,5 +1,4 @@
 import { Box, Typography } from '@mui/material';
-import logo from '../logo.svg';
 import { spin } from '../animations/spin';
 import { fillScreen } from '../config/styles';
 
@@ -10,11 +9,11 @@ const LoadingScreen = () => {
         component="img"
         sx={{
           animation: `${spin} infinite 20s linear`,
-          height: '40vmin',
-          width: '40vmin',
+          height: '192px',
+          width: '192px',
           pointerEvents: 'none',
         }}
-        src={logo}
+        src="/images/logo.jpg"
         alt="logo"></Box>
       <Typography variant="h5">Loading...</Typography>
     </Box>
