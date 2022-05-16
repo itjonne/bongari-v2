@@ -42,7 +42,6 @@ const Gallery = () => {
   // https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
   const sortBy = (property) => {
     let sortOrder = 1;
-    console.log('direction', filter.direction);
     if (filter.direction === '-') {
       sortOrder = -1;
       // property = property.substr(1);
@@ -60,7 +59,6 @@ const Gallery = () => {
   };
 
   const getObjects = useCallback(() => {
-    console.log('filter', filter.category);
     // console.log('objects', objects[filter.category]);
     if (!objects) return [];
     if (filter.category === 'Kaikki') {

@@ -67,11 +67,9 @@ const responsiveFontsTheme = responsiveFontSizes(theme); // Responsiiviseks
 const BottomNavigationBar = () => {
   const location = useLocation();
   /* eslint-disable no-unused-vars */
-  console.log('startswith', location.pathname.startsWith('/object'));
   const pathname = location.pathname.startsWith('/object') ? '/gallery' : location.pathname;
 
   const [value, setValue] = useState(pathname ? pathname : '/home'); // TODO: Ei taida toimia?
-  console.log('navigation', location.pathname);
   return (
     <Paper sx={{ width: '100%' }} elevation={3}>
       <ThemeProvider theme={responsiveFontsTheme}>

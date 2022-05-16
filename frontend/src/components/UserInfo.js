@@ -127,7 +127,6 @@ const UserInfo = () => {
   const categories = useSelector((state) => state.objects);
   const user = useSelector((state) => state.user);
   const finds = useSelector((state) => state.finds);
-  console.log(user);
 
   useEffect(() => {
     setLoading(false);

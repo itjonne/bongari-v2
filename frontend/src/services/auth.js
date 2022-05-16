@@ -14,13 +14,11 @@ const register = async ({ email, password }) => {
 
 const login = async ({ email, password }) => {
   const LOGIN_URL = `${BASE_URL}/auth/login`;
-  console.log('logging in', email, password);
   try {
     const response = await axios.post(LOGIN_URL, { email, password });
     if (response.data) {
       localStorage.setItem('user', JSON.stringify(response.data));
     }
-    console.log('response', response.data);
     return response.data;
   } catch (error) {
     console.log(error);

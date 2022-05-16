@@ -34,8 +34,6 @@ const AddFindForm = () => {
   const user = useSelector((state) => state.user);
   registerLocale('fi', fiLocale);
 
-  console.log('rendering');
-  console.log(date);
   const handleOpenModal = () => {
     setModalOpen(true);
   };
@@ -81,11 +79,6 @@ const AddFindForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    console.log({
-      date: date,
-      location: data.get('location'),
-      info: data.get('info'),
-    });
 
     // TODO: Avaa modal vaan jos menee läpi!
     if (data) {
@@ -95,7 +88,6 @@ const AddFindForm = () => {
         location: coordinates ? [coordinates.latitude, coordinates.longitude] : null,
         info: data.get('info'),
       };
-      console.log(body);
       dispatch(addFind({ user, object: location.state.object, body }));
     }
 

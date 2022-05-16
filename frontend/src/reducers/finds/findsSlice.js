@@ -41,7 +41,6 @@ export const findsSlice = createSlice({
   initialState: initialState, // Kurkataan onko localstoragessa entiset
   reducers: {
     initializeFinds: (state, action) => {
-      console.log('findsSlice', action.payload);
       return action.payload;
     },
   },
@@ -53,16 +52,13 @@ export const findsSlice = createSlice({
       })
       // CASES FOR ADDFIND
       .addCase(addFind.pending, (state) => {
-        console.log('pending addfind');
         return state;
       })
       .addCase(addFind.fulfilled, (state, action) => {
-        console.log('addfind payload', action.payload);
         if (action.payload === null) return state; // TODO: Onko tyhmä tarkistaa tässä?
         return [...state, action.payload];
       })
       .addCase(removeFind.fulfilled, (state, action) => {
-        console.log('removefind payload', action.payload);
         if (action.payload === null) return state;
         return state.filter((find) => find.id !== action.payload.id);
       });

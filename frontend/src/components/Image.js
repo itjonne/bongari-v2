@@ -38,6 +38,8 @@ const Image = ({ type, object, handleClick }) => {
     const hasFound = userFinds.findIndex((find) => find.objectId === object.id);
     if (hasFound >= 0) {
       setFound(true);
+    } else {
+      setFound(false);
     }
     // setFound(userFinds.findIndex((find) => find.objectId === object.id));
   }, [userFinds, object]);

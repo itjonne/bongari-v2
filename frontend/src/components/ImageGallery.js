@@ -2,8 +2,8 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Image from './Image';
 import ImageGalleryHeader from './ImageGalleryHeader';
 import useWindowDimensions from '../hooks/useWindowDimensions';
-import { useCallback, useState, useEffect } from 'react'; // memo
-import { FixedSizeGrid as Grid } from 'react-window'; // areEqual
+import { useCallback, useState, useEffect, memo } from 'react'; // memo
+import { FixedSizeGrid as Grid, areEqual } from 'react-window'; // areEqual
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { useSelector } from 'react-redux';
 import LoadingComponent from './LoadingComponent';
@@ -12,7 +12,7 @@ import LoadingComponent from './LoadingComponent';
 // https://stackoverflow.com/questions/57017935/react-window-how-to-pass-props-to-row-in-fixedsizelistrow-fixedsizelist
 // Tässä oli ennen memo.
 // eslint-disable-next-line react/display-name
-const Cell = ({ columnIndex, rowIndex, style, data }) => {
+const Cell = memo(({ columnIndex, rowIndex, style, data }) => {
   const CELL_GAP = 1;
   const { objects, columnCount, handleClick } = data;
   const singleColumnIndex = columnIndex + rowIndex * columnCount;
@@ -31,7 +31,7 @@ const Cell = ({ columnIndex, rowIndex, style, data }) => {
       {object && <Image type="square-name" object={object} />}
     </div>
   );
-}; //, areEqual);
+}, areEqual);
 
 // TODO: ADD LAzy load
 const ImageGallery = ({ getObjects, handleClick, handleSort, sortBy }) => {
@@ -73,7 +73,6 @@ const ImageGallery = ({ getObjects, handleClick, handleSort, sortBy }) => {
 
   /* eslint-disable-next-line  */
   const createImageList = useCallback(() => {
-    console.log('creating images');
     return objects.map((object) => (
       <ImageListItem
         sx={{ width: calculateRowHeight() }}
@@ -83,9 +82,6 @@ const ImageGallery = ({ getObjects, handleClick, handleSort, sortBy }) => {
       </ImageListItem>
     ));
   }, [objects, calculateRowHeight, handleClick]);
-
-  console.log('search', search);
-  console.log('filtered', searchFilter(objects));
 
   if (objects.length === 0) return <LoadingComponent />;
 

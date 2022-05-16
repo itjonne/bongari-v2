@@ -7,7 +7,6 @@ export const objectsSlice = createSlice({
   initialState: initialState, // Kurkataan onko localstoragessa entiset
   reducers: {
     initialize: (state, action) => {
-      console.log('objectsslice', action.payload);
       return action.payload;
     },
   },

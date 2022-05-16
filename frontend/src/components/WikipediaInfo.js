@@ -35,7 +35,6 @@ const WikipediaInfo = ({ object, handleScroll }) => {
     fetchData();
   }, [object]);
 
-  console.log('html', html);
   return (
     <Container
       sx={{

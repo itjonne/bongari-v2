@@ -40,8 +40,6 @@ export const authSlice = createSlice({
   reducers: {
     // eslint-disable-next-line no-unused-vars
     logout: (state, action) => {
-      console.log('logging out');
-      console.log(action.payload);
       localStorage.removeItem('user');
       localStorage.removeItem('token');
       state.user = action.payload;

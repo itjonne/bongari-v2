@@ -30,7 +30,6 @@ const Home = () => {
   const getObjects = useCallback(
     (start, end) => {
       if (!objects) return [];
-      console.log('getobjects category', filter.category);
       if (filter.category === 'Kaikki') {
         return objects.Linnut ? objects.Linnut.slice(start, end) : [];
       }

@@ -41,13 +41,10 @@ function App() {
   // GET FINDS
   useEffect(() => {
     const asyncGetFinds = async () => {
-      console.log('fetching finds from user');
       const data = await getFinds(user);
-      console.log('data returned from finds', data);
       dispatch(initializeFinds(data));
     };
     // Tää on nyt ihan tyhmä, muuten se latas aina ku lisäs pisteitä.
-    console.log(finds);
     if (!finds.length) asyncGetFinds();
   }, [dispatch, user]);
 

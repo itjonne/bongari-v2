@@ -28,7 +28,6 @@ const ImageListLarge = ({ header, getObjects }) => {
   }, [filter.category]);
 
   const handleClick = (object) => {
-    console.log(object);
     navigate(`/object/${object.id}`, { state: { object, from: 'Home' } });
   };
 

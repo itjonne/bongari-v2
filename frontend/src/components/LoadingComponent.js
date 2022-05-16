@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import logo from '../logo.svg';
+import logo from '../logo.jpg';
 import { spin } from '../animations/spin';
 import { fillContainer } from '../config/styles';
 

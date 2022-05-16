@@ -44,7 +44,6 @@ export const userSlice = createSlice({
       state.message = '';
     },
     addPoints: (state, action) => {
-      console.log('adding points');
       if (state.points) state.points = state.points += action.payload;
       localStorage.setItem('user', JSON.stringify(state));
     },
@@ -73,7 +72,6 @@ export const userSlice = createSlice({
         // state.isLoading = true;
       })
       .addCase(login.fulfilled, (state, action) => {
-        console.log('payload', action.payload);
         // state.isLoading = false;
         // state.isSuccess = true;
         // state.user = action.payload;

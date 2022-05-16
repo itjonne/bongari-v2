@@ -13,7 +13,6 @@ const ImageGalleryHeader = ({ handleSort, sortBy, search, setSearch }) => {
 
   const handleDirection = (e) => {
     e.preventDefault();
-    console.log('vaihdetaan direction', direction);
     dispatch(setDirection());
   };
 

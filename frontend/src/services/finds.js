@@ -3,7 +3,6 @@ import { BASE_URL } from './config';
 
 // Tällä hetkellä ottaa vastaan käyttäjän, heittää token+id combon headereihin.
 export const getFinds = async (user) => {
-  console.log('getting finds from', user);
   if (!user) return [];
 
   try {
@@ -24,7 +23,6 @@ export const getFinds = async (user) => {
 export const getLatestFinds = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/finds/latest`);
-    console.log('got latest finds', response.data);
     return response.data;
   } catch (error) {
     console.error('Problems getting latest finds');
@@ -33,7 +31,6 @@ export const getLatestFinds = async () => {
 };
 
 export const addFind = async ({ user, object, body }) => {
-  console.log('addfindservice', user, object);
   if (!user) return null;
 
   try {
@@ -56,7 +53,6 @@ export const addFind = async ({ user, object, body }) => {
 };
 
 export const removeFind = async ({ user, find }) => {
-  console.log('removeFinds', user, find);
   if (!user) return null;
 
   try {

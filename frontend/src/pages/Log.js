@@ -18,7 +18,6 @@ const Log = () => {
     dispatch(setCategory(name));
   };
 
-  console.log('log finds', finds);
   return (
     <>
       <TopNavigation header="Loki" />
