@@ -41,6 +41,20 @@ const ModalAddFindDialog = ({ open, handleClose, object }) => {
     p: 4,
   };
 
+  const calculateCongratulations = () => {
+    // Siellä pitäis aina olla ainakin tää uusin löytö.
+    if (finds.filter((find) => find.objectId === object.id).length === 0) {
+      return 'Nyt kävi jotain hassua, taitaa olla peli rikki! Onnittelut silti!';
+    }
+    if (finds.filter((find) => find.objectId === object.id).length === 1) {
+      return `Onnittelut uudesta bongauksesta! ${object.name} oli täysin uusi havainto!`;
+    } else {
+      return `Onnittelut bongauksesta! ${object.name} oli ${
+        finds.filter((find) => find.objectId === object.id).length
+      }. löytämäsi!`;
+    }
+  };
+
   return (
     <Modal
       open={open}
@@ -55,7 +69,7 @@ const ModalAddFindDialog = ({ open, handleClose, object }) => {
       <Fade in={open}>
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Onnittelut uudesta löydöstä!
+            Onnittelut bongauksesta!
           </Typography>
           <Box sx={{ display: 'flex', width: '100%' }}>
             <Image type="small" object={object} />
@@ -79,10 +93,7 @@ const ModalAddFindDialog = ({ open, handleClose, object }) => {
                 </Typography>
               </Box>
               <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Typography variant="body1">
-                  {object.name} oli {finds.filter((find) => find.objectId === object.id).length + 1}
-                  . löytämäsi!
-                </Typography>
+                <Typography variant="body1">{calculateCongratulations()}</Typography>
               </Box>
             </Box>
           </Box>
