@@ -44,7 +44,7 @@ const ModalAddFindDialog = ({ open, handleClose, object }) => {
   const calculateCongratulations = () => {
     // Siellä pitäis aina olla ainakin tää uusin löytö.
     if (finds.filter((find) => find.objectId === object.id).length === 0) {
-      return 'Nyt kävi jotain hassua, taitaa olla peli rikki! Onnittelut silti!';
+      return `Onnittelut uudesta bongauksesta! ${object.name} oli täysin uusi havainto!`;
     }
     if (finds.filter((find) => find.objectId === object.id).length === 1) {
       return `Onnittelut uudesta bongauksesta! ${object.name} oli täysin uusi havainto!`;
