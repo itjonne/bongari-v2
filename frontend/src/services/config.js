@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://bongari-app.herokuapp.com/api'; // 'http://localhost:3001/api'; //  // 'http://localhost:3001/api'; //  //  //  //  //  // ; //  // ; //  // ;
+export const BASE_URL = 'https://bongari.onrender.com/api'; // 'https://bongari-app.herokuapp.com/api'; // 'http://localhost:3001/api'; //  // 'http://localhost:3001/api'; //  //  //  //  //  // ; //  // ; //  // ;
